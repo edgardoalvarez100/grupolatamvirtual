@@ -1,4 +1,4 @@
-package com.example.grupolatam
+package com.plussoluciones.grupolatam
 
 import io.flutter.embedding.android.FlutterActivity
 
