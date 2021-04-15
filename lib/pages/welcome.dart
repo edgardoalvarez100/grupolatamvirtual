@@ -10,8 +10,8 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage>
     with SingleTickerProviderStateMixin {
-  AnimationController controllerLogo, controllerTexto, controllerButton;
-  Animation<double> opacity;
+  late AnimationController controllerLogo, controllerTexto, controllerButton;
+  late Animation<double> opacity;
 
   @override
   void initState() {
@@ -19,8 +19,6 @@ class _WelcomePageState extends State<WelcomePage>
         new AnimationController(vsync: this, duration: Duration(seconds: 2));
     opacity = new Tween(begin: 0.0, end: 1.0).animate(controllerLogo);
     controllerLogo.forward();
-
-    
 
     super.initState();
   }
@@ -35,42 +33,51 @@ class _WelcomePageState extends State<WelcomePage>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Color.fromRGBO(35, 25, 166, 1),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              "Bienvenido",
-              style: latamSansThinItalic(30.0, Colors.white),
-            ),
-            FadeTransition(
-              opacity: opacity,
-              child: SvgPicture.asset(
-                "assets/logo/logo-grande-background-dart.svg",
-                semanticsLabel: 'Logo Latam',
-                height: 100,
-              ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            CupertinoButton(
-                color: Color(0xFFED1650),
-                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
-                borderRadius: BorderRadius.circular(5),
-                child: Container(
-                  child: Text(
-                    "Comenzar",
-                    style: latamSansRegular(24, Colors.white),
+    return Scaffold(
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+          width: double.infinity,
+          height: double.infinity,
+          color: Color.fromRGBO(35, 25, 166, 1),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  "Bienvenido",
+                  style: latamSansThinItalic(30.0, Colors.white),
+                ),
+                FadeTransition(
+                  opacity: opacity,
+                  child: SvgPicture.asset(
+                    "assets/logo/logo-grande-background-dart.svg",
+                    semanticsLabel: 'Logo Latam',
+                    height: 100,
                   ),
                 ),
-                onPressed: () {}),
-          ],
+                SizedBox(
+                  height: 50,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: CupertinoButton(
+                      color: Color(0xFFED1650),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                      borderRadius: BorderRadius.circular(5),
+                      child: Container(
+                        child: Text(
+                          "Comenzar",
+                          style: latamSansRegular(24, Colors.white),
+                        ),
+                      ),
+                      onPressed: () {}),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
