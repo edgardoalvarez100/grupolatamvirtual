@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grupolatam/helpers/styles.dart';
 
 class LoginPage extends StatelessWidget {
@@ -63,14 +62,15 @@ class LoginPage extends StatelessWidget {
                               // autofocus: true,
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.email),
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Email',
-                                  labelStyle:
-                                      latamSansRegular(18, Colors.black54),
-                                  hintStyle: latamSansRegular(18, Colors.red),
-                                  contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 25))),
+                                prefixIcon: Icon(Icons.email),
+                                border: OutlineInputBorder(),
+                                labelText: 'Email',
+                                labelStyle:
+                                    latamSansRegular(18, Colors.black54),
+                                hintStyle: latamSansRegular(18, Colors.red),
+                                // contentPadding:
+                                //     EdgeInsets.symmetric(horizontal: 25)
+                              )),
                           SizedBox(
                             height: 20,
                           ),
@@ -105,7 +105,27 @@ class LoginPage extends StatelessWidget {
                               ),
                               onPressed: () {},
                             ),
-                          )
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   children: [
+                          //     Text(
+                          //       "¿No estas registrado?",
+                          //       style: latamSansRegular(14, Colors.black45),
+                          //     ),
+                          //     SizedBox(
+                          //       width: 10,
+                          //     ),
+                          //     Text(
+                          //       "Crea una cuenta",
+                          //       style: latamSansRegular(
+                          //           14, Colors.indigo.shade900, ),
+                          //     ),
+                          //   ],
+                          // )
                         ],
                       ),
                     ),

@@ -73,7 +73,9 @@ class _WelcomePageState extends State<WelcomePage>
                           style: latamSansRegular(24, Colors.white),
                         ),
                       ),
-                      onPressed: () {}),
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'login');
+                      }),
                 ),
               ],
             ),
