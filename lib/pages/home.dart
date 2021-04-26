@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grupolatam/widgets/home_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,11 +11,8 @@ class _HomePageState extends State<HomePage> {
 
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    HomeWidget(),
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -47,12 +45,8 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            _widgetOptions.elementAt(_selectedIndex),
-          ],
-        ),
+      body: SingleChildScrollView(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
